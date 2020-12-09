@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/IT/ProjektMultiThreading/Video.cpp
+string
+-
+
+F:/IT/ProjektMultiThreading/Video.hpp
+string
+-
+Video.cpp
+F:/IT/ProjektMultiThreading/Video.cpp
+
+F:/IT/ProjektMultiThreading/VideoData.cpp
+vector
+-
+Video.hpp
+F:/IT/ProjektMultiThreading/Video.hpp
+
+F:/IT/ProjektMultiThreading/VideoData.hpp
+string
+-
+VideoData.cpp
+F:/IT/ProjektMultiThreading/VideoData.cpp
+
+F:/IT/ProjektMultiThreading/main.cpp
+iostream
+-
+vector
+-
+VideoData.hpp
+F:/IT/ProjektMultiThreading/VideoData.hpp
+

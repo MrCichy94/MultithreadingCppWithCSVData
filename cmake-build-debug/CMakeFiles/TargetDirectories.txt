@@ -1,0 +1,3 @@
+F:/IT/ProjektMultiThreading/cmake-build-debug/CMakeFiles/ProjektMultiThreading.dir
+F:/IT/ProjektMultiThreading/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/IT/ProjektMultiThreading/cmake-build-debug/CMakeFiles/rebuild_cache.dir

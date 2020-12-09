@@ -1,0 +1,3 @@
+"C:\Programy\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\ProjektMultiThreading.dir/objects.a
+C:\Programy\MinGW\bin\ar.exe cr CMakeFiles\ProjektMultiThreading.dir/objects.a @CMakeFiles\ProjektMultiThreading.dir\objects1.rsp
+C:\Programy\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\ProjektMultiThreading.dir/objects.a -Wl,--no-whole-archive  -o ProjektMultiThreading.exe -Wl,--out-implib,libProjektMultiThreading.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ProjektMultiThreading.dir\linklibs.rsp
