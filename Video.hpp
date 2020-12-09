@@ -1,4 +1,4 @@
-#include <string>
+#pragma once
 #include "Video.cpp"
 
 #ifndef _Video_hpp

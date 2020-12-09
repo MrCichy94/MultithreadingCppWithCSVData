@@ -1,5 +1,7 @@
+#pragma once
 #include <vector>
 #include "Video.hpp"
+
 
 class VideoData{
 

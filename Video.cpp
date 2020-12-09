@@ -1,29 +1,32 @@
+#pragma once
 #include <string>
+#include <utility>
 
 class Video{
 
 public:
     //constructors
-    Video (std::string videoId, std::string trendingDate, std::string title,
-           std::string channelTitle, int views, int likes, int dislikes, int comments,
-           std::string description) : video_id(std::move(videoId)), trending_date(std::move(trendingDate)), title(std::move(title)),
-                                             channel_title(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
-                                             comments(comments), description(std::move(description)) {}
-    explicit Video (std::string videoId) : video_id(std::move(videoId)) {}
-    explicit Video (const int &views) : views(views) {}
+    Video(std::string videoId, std::string trendingDate, std::string title,
+          std::string channelTitle, int views, int likes, int dislikes, int comments,
+          std::string description) : videoId(std::move(videoId)), trendingDate(std::move(trendingDate)), title(std::move(title)),
+                                            channelTitle(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
+                                            comments(comments), description(std::move(description)) {}
+    //explicit Video (std::string videoId) : video_id(std::move(videoId)) {}
+    //explicit Video (const int &views) : views(views) {}
 
 //getters&setters
-    const std::string &getVideoId() const {return video_id;}
-    void setVideoId(const std::string &videoId) {video_id = videoId;}
 
-    const std::string &getTrendingDate() const {return trending_date;}
-    void setTrendingDate(const std::string &trendingDate) {trending_date = trendingDate;}
+    const std::string &getVideoId() const {return videoId;}
+    void setVideoId(const std::string &videoId) {Video::videoId = videoId;}
+
+    const std::string &getTrendingDate() const {return trendingDate;}
+    void setTrendingDate(const std::string &trendingDate) {Video::trendingDate = trendingDate;}
 
     const std::string &getTitle() const {return title;}
     void setTitle(const std::string &title) {Video::title = title;}
 
-    const std::string &getChannelTitle() const {return channel_title;}
-    void setChannelTitle(const std::string &channelTitle) {channel_title = channelTitle;}
+    const std::string &getChannelTitle() const {return channelTitle;}
+    void setChannelTitle(const std::string &channelTitle) {Video::channelTitle = channelTitle;}
 
     int getViews() const {return views;}
     void setViews(int views) {Video::views = views;}
@@ -41,10 +44,10 @@ public:
     void setDescription(const std::string &description) {Video::description = description;}
 
 private:
-    std::string video_id;
-    std::string trending_date;
+    std::string videoId;
+    std::string trendingDate;
     std::string title;
-    std::string channel_title;
+    std::string channelTitle;
     int views;
     int likes;
     int dislikes;

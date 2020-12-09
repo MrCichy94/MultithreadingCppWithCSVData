@@ -1,7 +1,9 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iterator>
 #include <sstream>
 #include <stdexcept>
 #include "VideoData.hpp"
@@ -10,8 +12,8 @@ class DataReadBuilder{
 
     static std::vector<std::string> readDataFromCSVFile(const std::string& fileInput){
 
-        std::ifstream file(fileInput);
         std::vector<std::string> singleVideoValues;
+        std::ifstream file(fileInput);
 
         if(!file) {
             throw std::runtime_error("File open error!");
@@ -41,24 +43,33 @@ public:
             throw std::runtime_error("Data format error!");
         }
 
+        std::vector<Video> videos;
         for(auto i = 0U; i < videoData.size(); i += 8) {
-            std::string video_id = videoData[i];
-            std::string trending_date = videoData[i + 1];
-            std::string title = videoData[i + 2];
-            std::string channel_title = videoData[i + 3];
-            std::string views = videoData[i + 4];
-            std::string likes = videoData[i + 5];
-            std::string dislikes = videoData[i + 6];
-            std::string comment_count = videoData[i + 7];
-            std::string description = videoData[i + 8];
 
-            auto *singleVideoToAdd = new Video(video_id, trending_date, title, channel_title,
-                                                std::stoi(views), std::stoi(likes), std::stoi(dislikes),
-                                                std::stoi(comment_count), description);
-            VideoData singleVideoToSave;
-            VideoData::saveToFullVideoBase(*singleVideoToAdd);
+            auto videoId = videoData[i];
+            auto trendingDate = videoData[i + 1];
+            auto title = videoData[i + 2];
+            auto channelTitle = videoData[i + 3];
+
+            auto views = videoData[i + 4];
+            auto viewsNum = std::stoi(views);
+
+            auto likes = videoData[i + 5];
+            auto likesNum = std::stoi(likes);
+
+            auto dislikes = videoData[i + 6];
+            auto dislikesNum = std::stoi(dislikes);
+
+            auto commentCount = videoData[i + 7];
+            auto commentCountNum = std::stoi(commentCount);
+
+            auto description = videoData[i + 8];
+
+            videos.emplace_back(videoId, trendingDate, title, channelTitle,
+                                viewsNum, likesNum, dislikesNum, commentCountNum, description);
+
         }
-        return VideoData::getFullVideoBase();
+        return videos;
     }
 
 };
