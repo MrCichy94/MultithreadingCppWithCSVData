@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+F:/IT/ProjektMultiThreading/DataReadBuilder.cpp
+iostream
+-
+string
+-
+vector
+-
+fstream
+-
+sstream
+-
+stdexcept
+-
+VideoData.hpp
+F:/IT/ProjektMultiThreading/VideoData.hpp
+
+F:/IT/ProjektMultiThreading/DataReadBuilder.hpp
+string
+-
+DataReadBuilder.cpp
+F:/IT/ProjektMultiThreading/DataReadBuilder.cpp
+
 F:/IT/ProjektMultiThreading/Video.cpp
 string
 -
@@ -17,8 +39,6 @@ Video.cpp
 F:/IT/ProjektMultiThreading/Video.cpp
 
 F:/IT/ProjektMultiThreading/VideoData.cpp
-utility
--
 vector
 -
 Video.hpp
@@ -35,6 +55,6 @@ iostream
 -
 vector
 -
-VideoData.hpp
-F:/IT/ProjektMultiThreading/VideoData.hpp
+DataReadBuilder.hpp
+F:/IT/ProjektMultiThreading/DataReadBuilder.hpp
 

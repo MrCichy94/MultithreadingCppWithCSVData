@@ -45,9 +45,9 @@ private:
     std::string trending_date;
     std::string title;
     std::string channel_title;
-    int views{};
-    int likes{};
-    int dislikes{};
-    int comments{};
+    int views;
+    int likes;
+    int dislikes;
+    int comments;
     std::string description;
 };

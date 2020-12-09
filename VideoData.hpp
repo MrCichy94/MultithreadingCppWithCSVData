@@ -4,7 +4,7 @@
 #ifndef _VideoData_hpp
 #define _VideoData_hpp
 
-const std::vector<Video> &getFullVideoBase();
-void saveToFullVideoBase(const std::vector<Video> &fullVideoBase);
+static const std::vector<Video> &getFullVideoBase();
+static void saveToFullVideoBase(const Video& addVideo);
 
 #endif

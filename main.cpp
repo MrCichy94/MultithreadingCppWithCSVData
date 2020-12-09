@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
-#include "VideoData.hpp"
+#include "DataReadBuilder.hpp"
 
 
 int main() {
+
 
     auto *idVid = new Video("irda");
     auto *viewsVid = new Video(5);
@@ -12,7 +13,7 @@ int main() {
     mojeChwilowe.push_back(*viewsVid);
 
     VideoData readData;
-    readData.saveToFullVideoBase(*viewsVid);
+    VideoData::saveToFullVideoBase(*viewsVid);
 
     std::cout << "Hello, World!" << std::endl;
     std::cout << "Rozmiar tablicy: " << mojeChwilowe.size() << std::endl;
@@ -21,9 +22,13 @@ int main() {
         std::cout << "Wyswietlenia: " << p.getViews() << std::endl;
     }
 
-    for(const auto& p : readData.getFullVideoBase()){
-        std::cout << "Wyswietlenia z VideoData: " << p.getViews();
+    for(const auto& p : VideoData::getFullVideoBase()){
+        std::cout << "Wyswietlenia z VideoData: " << p.getViews() << std::endl;
     }
+
+    std::cout << "----------------------------------------------" << std::endl;
+
+    auto videos = DataReadBuilder::addDataFromFileToVector("10z80k_przeklad.csv");
 
 
     return 0;
