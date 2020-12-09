@@ -11,14 +11,20 @@ int main() {
     std::vector<Video> mojeChwilowe;
     mojeChwilowe.push_back(*viewsVid);
 
-    //VideoData::saveToViewsVideoVector(*viewsVid); //!static needed, so to change
+    VideoData readData;
+    readData.saveToFullVideoBase(*viewsVid);
 
     std::cout << "Hello, World!" << std::endl;
     std::cout << "Rozmiar tablicy: " << mojeChwilowe.size() << std::endl;
 
     for(const auto& p : mojeChwilowe){
-        std::cout << "Wyswietlenia: " << p.getViews();
+        std::cout << "Wyswietlenia: " << p.getViews() << std::endl;
     }
+
+    for(const auto& p : readData.getFullVideoBase()){
+        std::cout << "Wyswietlenia z VideoData: " << p.getViews();
+    }
+
 
     return 0;
 }
