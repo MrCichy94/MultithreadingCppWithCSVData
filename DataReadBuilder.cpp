@@ -26,7 +26,7 @@ class DataReadBuilder{
 
             std::getline(file,lineInFile);
             std::istringstream ss(lineInFile);
-            while(std::getline(ss, field, ',')){
+            while(std::getline(ss, field, ';')){
                 singleVideoValues.emplace_back(field);
             }
         }
@@ -44,7 +44,8 @@ public:
         }
 
         std::vector<Video> videos;
-        for(auto i = 0U; i < videoData.size(); i += 8) {
+
+        for(auto i = 0U; i < videoData.size(); i += 9) {
 
             auto videoId = videoData[i];
             auto trendingDate = videoData[i + 1];
@@ -52,21 +53,22 @@ public:
             auto channelTitle = videoData[i + 3];
 
             auto views = videoData[i + 4];
-            auto viewsNum = std::stoi(views);
+            auto viewsNum = std::strtoul(views.c_str(), nullptr, 10);
 
             auto likes = videoData[i + 5];
-            auto likesNum = std::stoi(likes);
+            auto likesNum = std::strtoul(likes.c_str(), nullptr, 10);
 
             auto dislikes = videoData[i + 6];
-            auto dislikesNum = std::stoi(dislikes);
+            auto dislikesNum = std::strtoul(dislikes.c_str(), nullptr, 10);
 
             auto commentCount = videoData[i + 7];
-            auto commentCountNum = std::stoi(commentCount);
+            auto commentCountNum = std::strtoul(commentCount.c_str(), nullptr, 10);
 
             auto description = videoData[i + 8];
 
             videos.emplace_back(videoId, trendingDate, title, channelTitle,
                                 viewsNum, likesNum, dislikesNum, commentCountNum, description);
+
 
         }
         return videos;

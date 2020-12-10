@@ -29,7 +29,7 @@ int main() {
 
     std::cout << "----------------------------------------------" << std::endl;
 
-    auto videos = DataReadBuilder::addDataFromFileToVector("przeklad.csv");
+    auto videos = DataReadBuilder::addDataFromFileToVector("przyklad.csv");
 
 
     for(const auto& p : videos){
