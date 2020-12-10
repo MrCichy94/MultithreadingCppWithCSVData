@@ -34,8 +34,8 @@ int main() {
     std::chrono::duration<double> proccessTime3 = finishTime3 - finishTime2;
 
     std::cout << "----------------------------------------------" << std::endl;
-    std::cout << "Processing (creating URLs) time: " << proccessTime3.count() << " s" << std::endl;
-    std::cout << "Positive rating for this video: " << videosRatings[112].first << " %" << std::endl;
+    std::cout << "Processing (creating ratings) time: " << proccessTime3.count() << " s" << std::endl;
+    std::cout << "Positive rating for this video: " << videosRatings[112].second.first << " %" << std::endl;
 
     /* -------!!!------- TRY FUN WITH MULTI -------!!!------- */
 

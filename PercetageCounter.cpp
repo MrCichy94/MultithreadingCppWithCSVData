@@ -7,11 +7,13 @@
 class PercentageCounter{
 
 public:
-    static std::vector<std::pair<float,float>> countVotesRating(const std::vector<Video>& videos){
+    static std::vector<std::pair<std::string,std::pair<float,float>>> countVotesRating(const std::vector<Video>& videos){
 
-        std::vector<std::pair<float,float>> videosRatings;
+        std::vector<std::pair<std::string,std::pair<float,float>>> videosRatings;
 
         for(const auto& p : videos){
+
+            std::string videoID = p.getVideoId();
 
             float likes = p.getLikes();
             float dislikes = p.getDislikes();
@@ -27,7 +29,7 @@ public:
                 negativeRate = dislikes/total;
             } else negativeRate = 0;
 
-            videosRatings.emplace_back(positiveRate*100,negativeRate*100);
+            videosRatings.emplace_back(videoID, std::make_pair(positiveRate*100, negativeRate*100));
         }
         return videosRatings;
     }
