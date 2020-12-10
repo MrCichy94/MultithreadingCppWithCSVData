@@ -3,6 +3,8 @@
 
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../DataBuilder.cpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../DataBuilder.hpp
+CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../PercetageCounter.cpp
+CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../PercetageCounter.hpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../URLCreator.cpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../URLCreator.hpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../Video.cpp

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include "URLCreator.hpp"
+#include "PercetageCounter.hpp"
 
 
 int main() {
@@ -30,6 +31,15 @@ int main() {
     std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Processing (creating URLs) time: " << proccessTime2.count() << " s" << std::endl;
     std::cout << videosURLs[155] << std::endl;
+
+    auto videosRatings = PercentageCounter::countVotesRating(videos);
+
+    auto finishTime3 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> proccessTime3 = finishTime3 - finishTime2;
+
+    std::cout << "----------------------------------------------" << std::endl;
+    std::cout << "Processing (creating URLs) time: " << proccessTime3.count() << " s" << std::endl;
+    std::cout << "Positive rating for this video: " << videosRatings[155].first << " %" << std::endl;
 
     return 0;
 }
