@@ -39,7 +39,7 @@ int main() {
 
     std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Processing (creating URLs) time: " << proccessTime3.count() << " s" << std::endl;
-    std::cout << "Positive rating for this video: " << videosRatings[155].first << " %" << std::endl;
+    std::cout << "Positive rating for this video: " << videosRatings[112].first << " %" << std::endl;
 
     return 0;
 }
