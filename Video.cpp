@@ -6,11 +6,10 @@ class Video{
 
 public:
     //constructors
-    Video(std::string videoId, std::string trendingDate, std::string title,
-          std::string channelTitle, int views, int likes, int dislikes, int comments,
-          std::string description) : videoId(std::move(videoId)), trendingDate(std::move(trendingDate)), title(std::move(title)),
+    Video(std::string videoId, std::string trendingDate, std::string channelTitle, int views,
+          int likes, int dislikes, int comments) : videoId(std::move(videoId)), trendingDate(std::move(trendingDate)),
                                             channelTitle(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
-                                            comments(comments), description(std::move(description)) {}
+                                            comments(comments) {}
     //explicit Video (std::string videoId) : video_id(std::move(videoId)) {}
     //explicit Video (const int &views) : views(views) {}
 
@@ -21,9 +20,6 @@ public:
 
     const std::string &getTrendingDate() const {return trendingDate;}
     void setTrendingDate(const std::string &trendingDate) {Video::trendingDate = trendingDate;}
-
-    const std::string &getTitle() const {return title;}
-    void setTitle(const std::string &title) {Video::title = title;}
 
     const std::string &getChannelTitle() const {return channelTitle;}
     void setChannelTitle(const std::string &channelTitle) {Video::channelTitle = channelTitle;}
@@ -40,17 +36,12 @@ public:
     int getComments() const {return comments;}
     void setComments(int comments) {Video::comments = comments;}
 
-    const std::string &getDescription() const {return description;}
-    void setDescription(const std::string &description) {Video::description = description;}
-
 private:
     std::string videoId;
     std::string trendingDate;
-    std::string title;
     std::string channelTitle;
     int views;
     int likes;
     int dislikes;
     int comments;
-    std::string description;
 };

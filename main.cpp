@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include "DataReadBuilder.hpp"
 
 
@@ -28,14 +29,21 @@ int main() {
 */
 
     std::cout << "----------------------------------------------" << std::endl;
+    auto startTime = std::chrono::high_resolution_clock::now();
 
-    auto videos = DataReadBuilder::addDataFromFileToVector("przyklad.csv");
+    auto videos = DataReadBuilder::addDataFromFileToVector("przyklad.csv"); //final file is "data.csv"
 
-
+    int liczba = 0;
     for(const auto& p : videos){
-        std::cout << "Wyswietlenia z VideoData: " << p.getVideoId() << std::endl;
+        std::cout << "Rekord numer " << liczba << ". " << p.getChannelTitle() << std::endl;
+        liczba++;
     }
 
+    auto finishTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> proccessTime = finishTime - startTime;
+
+    std::cout << "----------------------------------------------" << std::endl;
+    std::cout << "Elapsed time: " << proccessTime.count() << " s" << std::endl;
 
     return 0;
 }

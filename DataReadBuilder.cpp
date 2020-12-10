@@ -39,35 +39,32 @@ public:
 
         auto videoData = readDataFromCSVFile(fileInput);
 
-        if(videoData.size() % 9) {
+        if(videoData.size() % 7) {
             throw std::runtime_error("Data format error!");
         }
 
         std::vector<Video> videos;
 
-        for(auto i = 0U; i < videoData.size(); i += 9) {
+        for(auto i = 0U; i < videoData.size(); i += 7) {
 
             auto videoId = videoData[i];
             auto trendingDate = videoData[i + 1];
-            auto title = videoData[i + 2];
-            auto channelTitle = videoData[i + 3];
+            auto channelTitle = videoData[i + 2];
 
-            auto views = videoData[i + 4];
+            auto views = videoData[i + 3];
             auto viewsNum = std::strtoul(views.c_str(), nullptr, 10);
 
-            auto likes = videoData[i + 5];
+            auto likes = videoData[i + 4];
             auto likesNum = std::strtoul(likes.c_str(), nullptr, 10);
 
-            auto dislikes = videoData[i + 6];
+            auto dislikes = videoData[i + 5];
             auto dislikesNum = std::strtoul(dislikes.c_str(), nullptr, 10);
 
-            auto commentCount = videoData[i + 7];
+            auto commentCount = videoData[i + 6];
             auto commentCountNum = std::strtoul(commentCount.c_str(), nullptr, 10);
 
-            auto description = videoData[i + 8];
-
-            videos.emplace_back(videoId, trendingDate, title, channelTitle,
-                                viewsNum, likesNum, dislikesNum, commentCountNum, description);
+            videos.emplace_back(videoId, trendingDate, channelTitle,
+                                viewsNum, likesNum, dislikesNum, commentCountNum);
 
 
         }

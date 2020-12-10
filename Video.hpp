@@ -10,9 +10,6 @@ void setVideoId(const std::string &videoId);
 const std::string &getTrendingDate();
 void setTrendingDate(const std::string &trendingDate);
 
-const std::string &getTitle();
-void setTitle(const std::string &title);
-
 const std::string &getChannelTitle();
 void setChannelTitle(const std::string &channelTitle);
 
@@ -27,9 +24,6 @@ void setDislikes(int dislikes);
 
 int getComments();
 void setComments(int comments);
-
-const std::string &getDescription();
-void setDescription(const std::string &description);
 
 #endif
 
