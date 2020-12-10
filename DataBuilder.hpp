@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
-#include "DataReadByDefaultBuilder.cpp"
+#include "DataBuilder.cpp"
 
-#ifndef _DataReadBuilder_hpp
-#define _DataReadBuilder_hpp
+#ifndef _DataBuilder_hpp
+#define _DataBuilder_hpp
 
 static auto readDataFromCSVFile(const std::string& fileInput);
 static auto addDataFromFileToVector(const std::string& fileInput);

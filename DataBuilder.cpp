@@ -1,14 +1,19 @@
 #pragma once
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+
 #include "Video.hpp"
 
-class DataReadByDefaultBuilder{
 
+
+class DataBuilder{
+
+    //static because we dont need instance of this class, dont need a diffrent objects, diffrent behavior.
     static std::vector<std::string> readDataFromCSVFile(const std::string& fileInput){
 
         std::vector<std::string> singleVideoValues;
@@ -29,6 +34,7 @@ class DataReadByDefaultBuilder{
                 singleVideoValues.emplace_back(field);
             }
         }
+        file.close();
         return singleVideoValues;
     }
 
@@ -64,8 +70,6 @@ public:
 
             videos.emplace_back(videoId, trendingDate, channelTitle,
                                 viewsNum, likesNum, dislikesNum, commentCountNum);
-
-
         }
         return videos;
     }

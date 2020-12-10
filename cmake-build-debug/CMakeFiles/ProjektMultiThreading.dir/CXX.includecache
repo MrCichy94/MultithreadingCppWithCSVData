@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.cpp
+F:/IT/ProjektMultiThreading/DataBuilder.cpp
 iostream
 -
 string
@@ -22,11 +22,23 @@ stdexcept
 Video.hpp
 F:/IT/ProjektMultiThreading/Video.hpp
 
-F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.hpp
+F:/IT/ProjektMultiThreading/DataBuilder.hpp
 string
 -
-DataReadByDefaultBuilder.cpp
-F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.cpp
+DataBuilder.cpp
+F:/IT/ProjektMultiThreading/DataBuilder.cpp
+
+F:/IT/ProjektMultiThreading/URLCreator.cpp
+vector
+-
+DataBuilder.hpp
+F:/IT/ProjektMultiThreading/DataBuilder.hpp
+
+F:/IT/ProjektMultiThreading/URLCreator.hpp
+string
+-
+URLCreator.cpp
+F:/IT/ProjektMultiThreading/URLCreator.cpp
 
 F:/IT/ProjektMultiThreading/Video.cpp
 string
@@ -41,6 +53,6 @@ iostream
 -
 chrono
 -
-DataReadByDefaultBuilder.hpp
-F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.hpp
+URLCreator.hpp
+F:/IT/ProjektMultiThreading/URLCreator.hpp
 
