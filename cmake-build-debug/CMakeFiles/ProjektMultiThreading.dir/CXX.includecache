@@ -65,6 +65,10 @@ iostream
 -
 chrono
 -
+future
+-
+thread
+-
 URLCreator.hpp
 F:/IT/ProjektMultiThreading/URLCreator.hpp
 PercetageCounter.hpp

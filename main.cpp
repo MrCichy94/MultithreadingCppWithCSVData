@@ -1,5 +1,8 @@
 #include <iostream>
 #include <chrono>
+#include <future>
+#include <thread>
+
 #include "URLCreator.hpp"
 #include "PercetageCounter.hpp"
 
@@ -8,14 +11,7 @@ int main() {
 
     auto startTime = std::chrono::high_resolution_clock::now();
 
-    auto videos = DataBuilder::addDataFromFileToVector("data.csv"); //final file is "data.csv"
-    /* INFO :: 40k w czasie 0,16s | 80k w czasie 0,33s (dokument .csv, format 7 kolumn)
-    int liczba = 0;
-    for(const auto& p : videos){
-        std::cout << "Rekord numer " << liczba << ". " << p.getVideoId() << std::endl;
-        liczba++;
-    }
-    */
+    auto videos = DataBuilder::addDataFromFileToVector("data.csv");
 
     auto finishTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> proccessTime = finishTime - startTime;
@@ -40,6 +36,19 @@ int main() {
     std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Processing (creating URLs) time: " << proccessTime3.count() << " s" << std::endl;
     std::cout << "Positive rating for this video: " << videosRatings[112].first << " %" << std::endl;
+
+    /* -------!!!------- TRY FUN WITH MULTI -------!!!------- */
+
+    auto threadOne = std::async(std::launch::async, URLCreator::createFullVideoURL, videos);
+    auto threadTwo = std::async(std::launch::async, PercentageCounter::countVotesRating, videos);
+
+    auto finishTime4 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> proccessTime4 = finishTime4 - finishTime3;
+
+    std::cout << "----------------------------------------------" << std::endl;
+    std::cout << "Processing (NORMAL) time: " << proccessTime2.count()+proccessTime3.count() << " s" << std::endl;
+    std::cout << "Processing (ASYNC) time: " << proccessTime4.count() << " s" << std::endl;
+    std::cout << "2 THREADs WAS FASTER THAN 1 ABOUT: " << (proccessTime2.count()+proccessTime3.count())-proccessTime4.count() << " s" << std::endl;
 
     return 0;
 }
