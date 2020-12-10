@@ -1,19 +1,24 @@
 #pragma once
 #include <string>
-#include <utility>
 
 class Video{
 
+private:
+
+    std::string videoId;
+    std::string trendingDate;
+    std::string channelTitle;
+    int views;
+    int likes;
+    int dislikes;
+    int comments;
+
 public:
-    //constructors
+
     Video(std::string videoId, std::string trendingDate, std::string channelTitle, int views,
           int likes, int dislikes, int comments) : videoId(std::move(videoId)), trendingDate(std::move(trendingDate)),
                                             channelTitle(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
                                             comments(comments) {}
-    //explicit Video (std::string videoId) : video_id(std::move(videoId)) {}
-    //explicit Video (const int &views) : views(views) {}
-
-//getters&setters
 
     const std::string &getVideoId() const {return videoId;}
     void setVideoId(const std::string &videoId) {Video::videoId = videoId;}
@@ -36,12 +41,4 @@ public:
     int getComments() const {return comments;}
     void setComments(int comments) {Video::comments = comments;}
 
-private:
-    std::string videoId;
-    std::string trendingDate;
-    std::string channelTitle;
-    int views;
-    int likes;
-    int dislikes;
-    int comments;
 };

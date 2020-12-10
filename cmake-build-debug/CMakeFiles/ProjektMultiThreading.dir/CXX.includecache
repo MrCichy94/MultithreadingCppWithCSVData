@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-F:/IT/ProjektMultiThreading/DataReadBuilder.cpp
+F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.cpp
 iostream
 -
 string
@@ -15,48 +15,32 @@ vector
 -
 fstream
 -
-iterator
--
 sstream
 -
 stdexcept
 -
-VideoData.hpp
-F:/IT/ProjektMultiThreading/VideoData.hpp
+Video.hpp
+F:/IT/ProjektMultiThreading/Video.hpp
 
-F:/IT/ProjektMultiThreading/DataReadBuilder.hpp
+F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.hpp
 string
 -
-DataReadBuilder.cpp
-F:/IT/ProjektMultiThreading/DataReadBuilder.cpp
+DataReadByDefaultBuilder.cpp
+F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.cpp
 
 F:/IT/ProjektMultiThreading/Video.cpp
 string
--
-utility
 -
 
 F:/IT/ProjektMultiThreading/Video.hpp
 Video.cpp
 F:/IT/ProjektMultiThreading/Video.cpp
 
-F:/IT/ProjektMultiThreading/VideoData.cpp
-vector
--
-Video.hpp
-F:/IT/ProjektMultiThreading/Video.hpp
-
-F:/IT/ProjektMultiThreading/VideoData.hpp
-string
--
-VideoData.cpp
-F:/IT/ProjektMultiThreading/VideoData.cpp
-
 F:/IT/ProjektMultiThreading/main.cpp
 iostream
 -
-vector
+chrono
 -
-DataReadBuilder.hpp
-F:/IT/ProjektMultiThreading/DataReadBuilder.hpp
+DataReadByDefaultBuilder.hpp
+F:/IT/ProjektMultiThreading/DataReadByDefaultBuilder.hpp
 

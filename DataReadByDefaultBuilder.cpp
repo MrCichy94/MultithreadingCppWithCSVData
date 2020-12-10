@@ -3,12 +3,11 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <iterator>
 #include <sstream>
 #include <stdexcept>
-#include "VideoData.hpp"
+#include "Video.hpp"
 
-class DataReadBuilder{
+class DataReadByDefaultBuilder{
 
     static std::vector<std::string> readDataFromCSVFile(const std::string& fileInput){
 
