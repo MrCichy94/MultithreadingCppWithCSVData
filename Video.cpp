@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <ostream>
 
 class Video{
 
@@ -19,6 +20,21 @@ public:
           int likes, int dislikes, int comments) : videoId(std::move(videoId)), trendingDate(std::move(trendingDate)),
                                             channelTitle(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
                                             comments(comments) {}
+
+    Video(const Video& obj) {}
+    Video(Video&& obj) {
+        std::cout << "move constructor" << std::endl;
+    }
+    Video& operator = (const Video& obj) {
+        std::cout << "copy assignment" << std::endl;
+        return *this;
+    }
+    Video& operator = (Video && obj)  noexcept {
+        std::cout << "move assignment" << std::endl;
+        return *this;
+    }
+
+    ~Video()= default;
 
     const std::string &getVideoId() const {return videoId;}
     void setVideoId(const std::string &videoId) {Video::videoId = videoId;}

@@ -46,9 +46,10 @@ int main() {
     std::chrono::duration<double> proccessTime4 = finishTime4 - finishTime3;
 
     std::cout << "----------------------------------------------" << std::endl;
-    std::cout << "Processing (NORMAL) time: " << proccessTime2.count()+proccessTime3.count() << " s" << std::endl;
+    std::cout << "Processing (NORMAL) time: " << proccessTime3.count() + proccessTime2.count() << " s" << std::endl;
     std::cout << "Processing (ASYNC) time: " << proccessTime4.count() << " s" << std::endl;
     std::cout << "2 THREADs WAS FASTER THAN 1 ABOUT: " << (proccessTime2.count()+proccessTime3.count())-proccessTime4.count() << " s" << std::endl;
+    //no wlasnie ze nie, bo main widzac async leci dalej i pobiera czas niemajacy związku z procesami. IMPL need.
 
     return 0;
 }
