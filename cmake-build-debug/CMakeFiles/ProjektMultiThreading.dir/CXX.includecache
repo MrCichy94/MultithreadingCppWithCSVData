@@ -55,6 +55,8 @@ F:/IT/ProjektMultiThreading/URLCreator.cpp
 F:/IT/ProjektMultiThreading/Video.cpp
 string
 -
+ostream
+-
 
 F:/IT/ProjektMultiThreading/Video.hpp
 Video.cpp

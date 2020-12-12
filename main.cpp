@@ -9,6 +9,9 @@
 
 int main() {
 
+    std::thread::id mainThread = std::this_thread::get_id();
+    std::cout << "Main thread id: " << mainThread << std::endl;
+
     auto startTime = std::chrono::high_resolution_clock::now();
 
     auto videos = DataBuilder::addDataFromFileToVector("data.csv");
@@ -39,17 +42,21 @@ int main() {
 
     /* -------!!!------- TRY FUN WITH MULTI -------!!!------- */
 
-    auto threadOne = std::async(std::launch::async, URLCreator::createFullVideoURL, videos);
-    auto threadTwo = std::async(std::launch::async, PercentageCounter::countVotesRating, videos);
-
+    std::thread threadOne(&URLCreator::createFullVideoURL,videos);
+    std::thread threadTwo(&PercentageCounter::countVotesRating,videos);
+    std::cout << threadOne.get_id() << std::endl;
+    std::cout << threadTwo.get_id() << std::endl;
+    threadOne.join();
+    threadTwo.join();
     auto finishTime4 = std::chrono::high_resolution_clock::now();
+
     std::chrono::duration<double> proccessTime4 = finishTime4 - finishTime3;
 
     std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Processing (NORMAL) time: " << proccessTime3.count() + proccessTime2.count() << " s" << std::endl;
     std::cout << "Processing (ASYNC) time: " << proccessTime4.count() << " s" << std::endl;
     std::cout << "2 THREADs WAS FASTER THAN 1 ABOUT: " << (proccessTime2.count()+proccessTime3.count())-proccessTime4.count() << " s" << std::endl;
-    //no wlasnie ze nie, bo main widzac async leci dalej i pobiera czas niemajacy związku z procesami. IMPL need.
 
+    std::cout << "This is a debug message, threads: " << std::thread::hardware_concurrency() << std::endl;
     return 0;
 }
