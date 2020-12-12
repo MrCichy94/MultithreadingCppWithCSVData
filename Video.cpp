@@ -21,20 +21,23 @@ public:
                                             channelTitle(std::move(channelTitle)), views(views), likes(likes), dislikes(dislikes),
                                             comments(comments) {}
 
-    Video(const Video& obj) {}
-    Video(Video&& obj) {
-        std::cout << "move constructor" << std::endl;
-    }
-    Video& operator = (const Video& obj) {
+    Video(const Video& obj) : videoId(obj.videoId), trendingDate(obj.trendingDate), channelTitle(obj.channelTitle),
+                            views(obj.views), likes(obj.likes), dislikes(obj.dislikes), comments(obj.comments) {}
+
+    Video(Video&& obj) noexcept : videoId(std::move(obj.videoId)), trendingDate(std::move(obj.trendingDate)), channelTitle(std::move(obj.channelTitle)),
+                         views(obj.views), likes(obj.likes), dislikes(obj.dislikes), comments(obj.comments) {}
+
+    Video& operator = (const Video &obj) {
         std::cout << "copy assignment" << std::endl;
         return *this;
     }
-    Video& operator = (Video && obj)  noexcept {
+    Video& operator = (Video &&obj)  noexcept {
         std::cout << "move assignment" << std::endl;
         return *this;
     }
 
-    ~Video()= default;
+    ~Video(){}
+
 
     const std::string &getVideoId() const {return videoId;}
     void setVideoId(const std::string &videoId) {Video::videoId = videoId;}

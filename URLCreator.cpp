@@ -13,10 +13,12 @@ public:
 
         std::vector<std::string> videosURLs;
 
+        videosURLs.reserve(videos.size());
+
         for(const auto& p : videos){
             videosURLs.emplace_back("https://www.youtube.com/watch?v=" + p.getVideoId());
         }
-
+        std::cout << "urlCreator is me!" << std::endl;
         return videosURLs;
     }
 };

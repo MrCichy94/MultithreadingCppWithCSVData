@@ -31,6 +31,7 @@ public:
 
             videosRatings.emplace_back(videoID, std::make_pair(positiveRate*100, negativeRate*100));
         }
+        std::cout << "videosRatings is me!" << std::endl;
         return videosRatings;
     }
 };
