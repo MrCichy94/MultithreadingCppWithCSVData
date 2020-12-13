@@ -5,6 +5,7 @@
 
 #include "URLCreator.hpp"
 #include "PercetageCounter.hpp"
+#include "LikesGainer.hpp"
 
 
 int main() {
@@ -34,6 +35,7 @@ int main() {
     std::cout << "----------------------------------------------" << std::endl;
 
     auto videosRatings = PercentageCounter::countVotesRating(videos);
+    //LikesGainer::addLikesForVideo(videosRatings, 1000); //working
 
     auto finishTime3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> proccessTime3 = finishTime3 - finishTime2;

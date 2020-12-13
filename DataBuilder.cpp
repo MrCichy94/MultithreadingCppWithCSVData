@@ -42,13 +42,13 @@ public:
 
     static std::vector<Video> addDataFromFileToVector(const std::string& fileInput){
 
+        static std::vector<Video> videos;
+
         auto videoData = readDataFromCSVFile(fileInput);
 
         if(videoData.size() % 7) {
             throw std::runtime_error("Data format error!");
         }
-
-        std::vector<Video> videos;
 
         for(auto i = 0U; i < videoData.size(); i += 7) {
 
@@ -73,5 +73,4 @@ public:
         }
         return videos;
     }
-
 };
