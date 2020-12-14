@@ -3,6 +3,8 @@
 
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../DataBuilder.cpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../DataBuilder.hpp
+CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../LikesGainer.cpp
+CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../LikesGainer.hpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../PercetageCounter.cpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../PercetageCounter.hpp
 CMakeFiles/ProjektMultiThreading.dir/main.cpp.obj: ../URLCreator.cpp

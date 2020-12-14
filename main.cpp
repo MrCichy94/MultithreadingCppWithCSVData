@@ -35,7 +35,8 @@ int main() {
     std::cout << "----------------------------------------------" << std::endl;
 
     auto videosRatings = PercentageCounter::countVotesRating(videos);
-    //LikesGainer::addLikesForVideo(videosRatings, 1000); //working
+    auto videoID = URLCreator::getVideoIDbyNumberInVector(videos, 3);
+    LikesGainer::addLikesForVideo(videos, videoID, 1000);
 
     auto finishTime3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> proccessTime3 = finishTime3 - finishTime2;

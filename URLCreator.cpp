@@ -21,5 +21,18 @@ public:
         std::cout << "urlCreator is me!" << std::endl;
         return videosURLs;
     }
+
+    static std::string getVideoIDbyNumberInVector(const std::vector<Video>& videos, float videoNO){
+        std::string videoID;
+        float counter = 0;
+        for(const auto& p : videos){
+            if(counter == videoNO) {
+                videoID = p.getVideoId();
+                break; //because, when i look to data archive i found more than 1 IDs same record!
+            }
+            else {counter++;}
+        }
+        return videoID;
+    }
 };
 
