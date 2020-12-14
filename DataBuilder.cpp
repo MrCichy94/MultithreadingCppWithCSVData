@@ -44,31 +44,29 @@ public:
 
         auto videoData = readDataFromCSVFile(fileInput);
 
-        if(videoData.size() % 7) {
-            throw std::runtime_error("Data format error!");
-        }
+        try {
+            for(auto i = 0U; i < videoData.size(); i += 7) {
 
-        for(auto i = 0U; i < videoData.size(); i += 7) {
+                auto videoId = videoData[i];
+                auto trendingDate = videoData[i + 1];
+                auto channelTitle = videoData[i + 2];
 
-            auto videoId = videoData[i];
-            auto trendingDate = videoData[i + 1];
-            auto channelTitle = videoData[i + 2];
+                auto views = videoData[i + 3];
+                auto viewsNum = std::strtoul(views.c_str(), nullptr, 10);
 
-            auto views = videoData[i + 3];
-            auto viewsNum = std::strtoul(views.c_str(), nullptr, 10);
+                auto likes = videoData[i + 4];
+                auto likesNum = std::strtoul(likes.c_str(), nullptr, 10);
 
-            auto likes = videoData[i + 4];
-            auto likesNum = std::strtoul(likes.c_str(), nullptr, 10);
+                auto dislikes = videoData[i + 5];
+                auto dislikesNum = std::strtoul(dislikes.c_str(), nullptr, 10);
 
-            auto dislikes = videoData[i + 5];
-            auto dislikesNum = std::strtoul(dislikes.c_str(), nullptr, 10);
+                auto commentCount = videoData[i + 6];
+                auto commentCountNum = std::strtoul(commentCount.c_str(), nullptr, 10);
 
-            auto commentCount = videoData[i + 6];
-            auto commentCountNum = std::strtoul(commentCount.c_str(), nullptr, 10);
-
-            videos.emplace_back(videoId, trendingDate, channelTitle,
-                                viewsNum, likesNum, dislikesNum, commentCountNum);
-        }
+                videos.emplace_back(videoId, trendingDate, channelTitle,
+                                    viewsNum, likesNum, dislikesNum, commentCountNum);
+            }
+        } catch (const std::runtime_error& e){}
         return videos;
     }
 };
