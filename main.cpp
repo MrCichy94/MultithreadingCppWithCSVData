@@ -17,31 +17,25 @@ int main() {
     /* -------!!!------- TRY FUN WITH 1 THREAD RIDE -------!!!------- */
 
     auto startTime = std::chrono::high_resolution_clock::now();
-
     auto videos = DataBuilder::addDataFromFileToVector("data.csv");
-
     auto finishTime = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> proccessTime = finishTime - startTime;
 
+    std::chrono::duration<double> proccessTime = finishTime - startTime;
     std::cout << "Processing (reading data) time: " << proccessTime.count() << " s" << std::endl;
     std::cout << "----------------------------------------------" << std::endl;
-
     auto videosURLs = URLCreator::createFullVideoURL(videos);
-
     auto finishTime2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> proccessTime2 = finishTime2 - finishTime;
 
     std::cout << "Processing (creating URLs) time: " << proccessTime2.count() << " s" << std::endl;
     std::cout << "----------------------------------------------" << std::endl;
-
     auto videosRatings = PercentageCounter::countVotesRating(videos);
-    auto videoID = URLCreator::getVideoIDbyNumberInVector(videos, 3);
-    LikesGainer::addLikesForVideo(videos, videoID, 1000);
-
     auto finishTime3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> proccessTime3 = finishTime3 - finishTime2;
-
     std::cout << "Processing (creating ratings) time: " << proccessTime3.count() << " s" << std::endl;
+
+    auto videoID = URLCreator::getVideoIDbyNumberInVector(videos, 3);
+    LikesGainer::addLikesForVideo(videos, videoID, 1000);
 
     /* -------!!!------- TRY FUN WITH ASYNC -------!!!------- */
 

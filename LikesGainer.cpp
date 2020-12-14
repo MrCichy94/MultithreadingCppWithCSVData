@@ -16,7 +16,7 @@ public:
                 inputLikes = p.getLikes();
                 outputLikes = inputLikes + countOfLikesToAdd;
                 p.setLikes(outputLikes);
-                break; //because, when i look to data archive i found more than 1 IDs same record!
+                break; //because, when i look to data archive i found more than 1 IDs same record! I dont want to merge the data. I need as many record as possible.
             }
         }
         std::cout << countOfLikesToAdd << " likes added to video: " << videoID << std::endl;

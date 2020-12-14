@@ -28,7 +28,7 @@ public:
         for(const auto& p : videos){
             if(counter == videoNO) {
                 videoID = p.getVideoId();
-                break; //because, when i look to data archive i found more than 1 IDs same record!
+                break; //because, when i look to data archive i found more than 1 IDs same record! I dont want to merge the data. I need as many record as possible.
             }
             else {counter++;}
         }
