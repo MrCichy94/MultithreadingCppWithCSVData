@@ -19,22 +19,20 @@ class DataBuilder{
         std::vector<std::string> singleVideoValues;
         std::ifstream file(fileInput);
 
-        if(!file) {
-            throw std::runtime_error("File open error!");
-        }
+        try {
+            std::string lineInFile;
+            std::string field;
 
-        std::string lineInFile;
-        std::string field;
+            while (file) {
 
-        while(file){
-
-            std::getline(file,lineInFile);
-            std::istringstream ss(lineInFile);
-            while(std::getline(ss, field, ';')){
-                singleVideoValues.emplace_back(field);
+                std::getline(file, lineInFile);
+                std::istringstream ss(lineInFile);
+                while (std::getline(ss, field, ';')) {
+                    singleVideoValues.emplace_back(field);
+                }
             }
-        }
-        file.close();
+            file.close();
+        } catch (const std::runtime_error& e){}
         return singleVideoValues;
     }
 
