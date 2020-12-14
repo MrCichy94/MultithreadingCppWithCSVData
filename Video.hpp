@@ -7,11 +7,11 @@
 const std::string &getVideoId();
 const std::string &getTrendingDate();
 const std::string &getChannelTitle();
-int getViews();
-int getLikes();
+float getViews();
+float getLikes();
 void setLikes(float likes);
-int getDislikes();
-int getComments();
+float getDislikes();
+float getComments();
 
 #endif
 
